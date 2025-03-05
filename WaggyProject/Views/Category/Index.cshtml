@@ -1,9 +1,10 @@
 ﻿@model List<Category>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kategoriler";
+    Layout="~/Views/AdminLayout/Index.cshtml"; 
 }
 
-<h3>Kategoriler</h3>
+
 @{
     int count = 0;
 }
@@ -29,8 +30,10 @@
         </td>
     </tr>
     }
+
+  
 </table>
-
-<br />
-
 <a href="/Category/AddCategory" class="btn btn-dark">Yeni Kategori</a>
+
+
+
