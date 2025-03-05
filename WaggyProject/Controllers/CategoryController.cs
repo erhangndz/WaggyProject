@@ -28,9 +28,33 @@ namespace WaggyProject.Controllers
         [HttpPost]
         public IActionResult AddCategory(Category model)
         {
-            _context.Categories.Add(model);
+            _context.Add(model);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            var value = _context.Categories.Find(id);
+            _context.Remove(value);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult UpdateCategory(int id)
+        {
+            var value = _context.Categories.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCategory(Category model)
+        {
+            _context.Update(model);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

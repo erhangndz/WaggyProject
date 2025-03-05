@@ -1,0 +1,47 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Ürünler";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@{
+    int count = 0;
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>#</th>
+        <th>Ürün Görseli</th>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Puanı</th>
+        <th>Kategori</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+            count++;
+
+
+        <tr>
+            <th>@count</th>
+            <td><img src="@item.ImageUrl" style="height:75px;width:75px" /> </td>
+            <td>@item.ProductName</td>
+            <td>@item.Price ₺</td>
+            <td>@item.Review</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                <a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a>
+                <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+
+  
+</table>
+<a href="/Product/AddProduct" class="btn btn-primary">Yeni Ürün</a>
+
+
+
+
