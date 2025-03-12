@@ -41,5 +41,34 @@ namespace WaggyProject.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult UpdateProduct(int id)
+        {
+            var categoryList = _context.Categories.ToList();
+            ViewBag.categories = (from x in categoryList
+                                  select new SelectListItem
+                                  {
+                                      Text = x.CategoryName,
+                                      Value = x.CategoryId.ToString()
+                                  }).ToList();
+            var value = _context.Products.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProduct(Product model)
+        {
+            _context.Update(model);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteProduct(int id)
+        {
+            var value = _context.Products.Find(id);
+            _context.Remove(value);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
