@@ -1,0 +1,24 @@
+﻿@model List<Category>
+@*
+   DefaultCategoriesViewComponent
+*@
+
+
+<section id="categories">
+    <div class="container my-3 py-5">
+        <div class="row my-5">
+
+            @foreach(var item in Model)
+            {
+                <div class="col text-center">
+                    <a href="#" class="categories-item">
+                        <iconify-icon class="category-icon" icon="@item.Icon"></iconify-icon>
+                        <h5>@item.CategoryName</h5>
+                    </a>
+                </div>
+            }
+           
+           
+        </div>
+    </div>
+</section>
