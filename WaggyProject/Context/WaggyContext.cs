@@ -17,5 +17,6 @@ namespace WaggyProject.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

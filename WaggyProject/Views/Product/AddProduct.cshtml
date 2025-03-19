@@ -5,13 +5,13 @@
 }
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     
     <label>Ürün Adı</label>
     <input type="text" asp-for="ProductName" class="form-control" />
     <br />
      <label>Ürün Görseli</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <input type="file" asp-for="ImageFile" class="form-control" required />
     <br />
     <label>Ürün Fiyatı</label>
     <input type="number" asp-for="Price" class="form-control" />

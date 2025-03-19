@@ -37,6 +37,20 @@ namespace WaggyProject.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product model)
         {
+            if (model.ImageFile != null)
+            {
+                var currentDirectory = Directory.GetCurrentDirectory();
+                var extension = Path.GetExtension(model.ImageFile.FileName);
+                var fileName = Guid.NewGuid().ToString();
+                var saveLocation = Path.Combine(currentDirectory, "wwwroot/images", fileName + extension);
+
+                var stream = new FileStream(saveLocation, FileMode.Create);
+
+                model.ImageFile.CopyTo(stream);
+                model.ImageUrl = "/images/" + fileName + extension;
+                
+            }
+
             _context.Add(model);
             _context.SaveChanges();
             return RedirectToAction("Index");

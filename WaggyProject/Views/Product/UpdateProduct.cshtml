@@ -4,13 +4,15 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="ProductId" />
     <label>Ürün Adı</label>
     <input type="text" asp-for="ProductName" class="form-control" />
     <br />
     <label>Ürün Görseli</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <img src="@Model.ImageUrl" style="width:100px;height:100px" alt="Ürün Görseli" />
+    <input type="file" asp-for="ImageFile" class="form-control" />
+    <input type="hidden" asp-for="ImageUrl" class="form-control" />
     <br />
     <label>Ürün Fiyatı</label>
     <input type="number" asp-for="Price" class="form-control" />

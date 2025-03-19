@@ -1,0 +1,61 @@
+﻿@model Message
+<section id="contact" style="background: url('~/waggy-1.0.0/images/background-img.png') no-repeat;">
+    <div class="container ">
+        <div class="row my-5 py-5">
+            <div class="offset-md-3 col-md-6 my-5 ">
+                <h2 class="display-3 fw-normal text-center">
+                    Bizimle <span class="text-primary">İletişime Geçin</span>
+                </h2>
+                <form method="post" asp-action="SendMessage" asp-controller="Default">
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-lg" asp-for="Name" 
+                               placeholder="Adınız Soyadınız" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control form-control-lg" asp-for="Email"
+                               placeholder="Email Adresiniz" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-lg" asp-for="Subject"
+                               placeholder="Mesajın Konusu" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea type="text" class="form-control form-control-lg" asp-for="MessageBody"
+                                  placeholder="Mesajınızı Yazın ..."  required></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" onclick="sendMessage()" class="btn btn-dark btn-lg rounded-1">Gönder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function sendMessage(){
+
+            Swal.fire({
+      title: "Tebrikler, Mesajınız gönderildi",
+      text: "Size en yakın zamanda cevap verilecektir.",
+      icon: "success",
+      showCancelButton: false,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Tamam",
+      cancelButtonText: "İptal"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+          window.location.href= "/Default/Index/";
+
+      }
+    });
+
+
+    }
+
+</script>
+
