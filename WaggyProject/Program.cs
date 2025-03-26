@@ -1,9 +1,17 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using System.Reflection;
 using WaggyProject.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<WaggyContext>();
+
+builder.Services.AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters()
+                .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
