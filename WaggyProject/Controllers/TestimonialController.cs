@@ -31,13 +31,32 @@ namespace WaggyProject.Controllers
         public IActionResult CreateTestimonial(Testimonial model)
         {
 
-            //Fast Fail Yöntemi 
-            if (!ModelState.IsValid) //Kurallara uymuyorsa 
+            
+            if (!ModelState.IsValid) 
             {
                 return View(model);
             }
 
             _context.Add(model);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateTestimonial(int id)
+        {
+            var value = _context.Testimonials.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateTestimonial(Testimonial model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            _context.Update(model);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

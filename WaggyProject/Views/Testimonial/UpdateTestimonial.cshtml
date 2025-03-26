@@ -1,0 +1,21 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Referans Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<form method="post">
+    <input type="hidden" asp-for="TestimonialId" />
+    <label>Ad Soyad</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+    <label>Yorum</label>
+    <textarea type="text" asp-for="Comment" class="form-control" rows="5"></textarea>
+    <span asp-validation-for="Comment" class="text-danger"></span>
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+
+</form>
+
