@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WaggyProject.Context;
 using WaggyProject.Entities;
 
 namespace WaggyProject.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
 

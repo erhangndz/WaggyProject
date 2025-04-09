@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WaggyProject.Entities;
 
 namespace WaggyProject.Context
 {
-    public class WaggyContext: DbContext
+    public class WaggyContext: IdentityDbContext<AppUser,AppRole,int>
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
