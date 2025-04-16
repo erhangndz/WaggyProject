@@ -24,6 +24,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.ConfigureApplicationCookie(config =>
 {
     config.LoginPath = "/Login/Index";
+    config.LogoutPath = "/Login/Logout";
 });
 
 var app = builder.Build();
