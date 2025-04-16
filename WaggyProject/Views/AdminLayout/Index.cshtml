@@ -46,7 +46,7 @@
     <!-- [ Sidebar Menu ] start -->
     @await Html.PartialAsync("~/Views/AdminLayout/AdminLayoutSidebar.cshtml")
     <!-- [ Navbar Menu]  -->
-    @await Html.PartialAsync("~/Views/AdminLayout/AdminLayoutNavbar.cshtml")
+    @await Component.InvokeAsync("AdminLayoutNavbarComponent")
     <!-- [ Header ] end -->
     <!-- [ Main Content ] start -->
     <div class="pc-container">
